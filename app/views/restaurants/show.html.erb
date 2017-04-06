@@ -3,3 +3,13 @@
   <p>Address: <%= @restaurant.address %></p>
   <p>Phone: <%= @restaurant.phone %></p>
 </div>
+
+<div class="reviews">
+  <% @restaurant.reviews.each do |r| %>
+    <div class="review">
+      Name: <%= r.name %>
+      Rating: <%= r.rating %>
+      Review: <%= r.review %>
+    </div>
+  <% end %>
+</div>
