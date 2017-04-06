@@ -1,5 +1,5 @@
-<h1>Add a restaurant</h1>
-<div class="col-4">
+<div class="col-11 col-centered">
+  <h1>Add a restaurant</h1>
   <%= form_for @restaurant do |f| %>
   <div class="form-group">
     <%= f.label :name %>
@@ -16,7 +16,7 @@
   <div class="form-group">
     <%= select_tag :neighborhood_id, options_for_select(@neighborhoods.collect{ |u| [u.name, u.id] }), class: "form-control" %>
   </div>
-  <%= f.submit "Seize the Cheese!" %>
+  <%= f.submit "Seize the Cheese!", class: "btn btn-primary" %>
   <% end %>
 
 </div>
