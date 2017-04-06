@@ -15,7 +15,7 @@
       <%= f.text_field :phone, class: "form-control"%>
     </div>
     <div class="form-group">
-      <%= select_tag :neighborhood_id, options_for_select(@neighborhoods.collect{ |u| [u.name, u.id] }), class: "form-control" %>
+      <%= f.select :neighborhood_id, options_for_select(@neighborhoods.collect{ |u| [u.name, u.id] }), class: "form-control" %>
     </div>
     <%= f.submit "Seize the Cheese!", class: "btn btn-primary" %>
     <% end %>
