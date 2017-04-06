@@ -1,22 +1,24 @@
-<div class="col-11 col-centered">
-  <h1>Add a restaurant</h1>
-  <%= form_for @restaurant do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :phone %>
-    <%= f.text_field :phone, class: "form-control"%>
-  </div>
-  <div class="form-group">
-    <%= select_tag :neighborhood_id, options_for_select(@neighborhoods.collect{ |u| [u.name, u.id] }), class: "form-control" %>
-  </div>
-  <%= f.submit "Seize the Cheese!", class: "btn btn-primary" %>
-  <% end %>
+<div class="background-div">
+  <div class="col-11 col-centered">
+    <h1>Add a restaurant</h1>
+    <%= form_for @restaurant do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= select_tag :neighborhood_id, options_for_select(@neighborhoods.collect{ |u| [u.name, u.id] }), class: "form-control" %>
+    </div>
+    <%= f.submit "Seize the Cheese!", class: "btn btn-primary" %>
+    <% end %>
 
+  </div>
 </div>

@@ -2,9 +2,11 @@ require 'rails_helper'
 
 describe "restaurant reviews" do
   scenario "seen on restaurant show page" do
+    n = Neighborhood.create(name: "Denver")
     restaurant = Restaurant.create(name: "X",
                                    address: "1 A Ave",
-                                   phone: "123-456-7890")
+                                   phone: "123-456-7890",
+                                   neighborhood_id: n.id)
     review_1 = restaurant.reviews.create(name: "Beth",
                                          review: "It was fine.",
                                          rating: 5)
