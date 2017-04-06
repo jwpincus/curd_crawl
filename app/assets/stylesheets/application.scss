@@ -16,5 +16,18 @@
 
 .col-centered{
     float: none;
-    margin: 0 auto;
+    margin: 20px auto;
+    background-color: lightgrey;
+    padding: 1em;
+}
+
+body{
+	/* This image will be displayed fullscreen */
+	background:url('http://goldenagecheese.com/blog/wp-content/uploads/2015/04/che.jpg') no-repeat;
+
+	/* Ensure the html element always takes up the full height of the browser window */
+	min-height:100%;
+
+	/* The Magic */
+	background-size:cover;
 }
