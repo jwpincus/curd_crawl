@@ -17,14 +17,14 @@ describe "restaurant reviews" do
     visit restaurant_path(restaurant)
 
     within("div.reviews div:nth-child(1)") do
-      expect(page).to have_content("Name: Andrew")
-      expect(page).to have_content("Review: Had better.")
+      expect(page).to have_content("Andrew says")
+      expect(page).to have_content("Had better.")
       expect(page).to have_content("Rating: 3")
     end
 
     within("div.reviews div:nth-child(2)") do
-      expect(page).to have_content("Name: Beth")
-      expect(page).to have_content("Review: It was fine.")
+      expect(page).to have_content("Beth says")
+      expect(page).to have_content("It was fine.")
       expect(page).to have_content("Rating: 5")
     end
   end
