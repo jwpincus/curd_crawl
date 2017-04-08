@@ -1,38 +1,47 @@
-<div class="col-11 col-centered">
+<div class="col-md-11 col-centered">
   <h1><%= @restaurant.name %></h1>
   <div class="">
+    <p><h4>Average rating <%= @restaurant.reviews.average(:rating) %> out 5 </h4></p>
     <p>Address: <%= @restaurant.address %></p>
     <p>Phone: <%= @restaurant.phone %></p>
 </div>
 
-<div class="reviews col-11 col-centered">
+<div class="reviews col-md-11 col-centered">
   <% @restaurant.reviews.each do |r| %>
   <div class="review">
     <h4><%= r.name %> says:</h4>
     <%= r.review %><br>
     <h6>Rating:</h6>  <%= r.rating %><br>
+    <% if current_user.try(:admin) %>
+      <%= link_to "delete review", review_path(r), method: :delete  %>
+    <% end %>
   </div>
   <% end %>
 </div>
 </div>
 
-
-<div class="col-11 col-centered">
-  <h3>Add to the literary canon of reviews about <%= @restaurant.name %></h3>
-  <%= form_for @review do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+<% if user_signed_in? %>
+  <div class="col-md-11 col-centered">
+    <h3>Add to the literary canon of reviews about <%= @restaurant.name %></h3>
+    <%= form_for @review do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Describe your curding experience in detail" %>
+      <%= f.text_area :review, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "On a scale from 1-5 curds, would you curd again?" %>
+      <%= f.select :rating, (1..5), class: "form-control" %>
+    </div>
+      <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+      <%= f.submit "Seize the Cheese", class: "btn btn-primary" %>
+      <% end %>
   </div>
-  <div class="form-group">
-    <%= f.label "Describe your curding experience in detail" %>
-    <%= f.text_area :review, class: "form-control" %>
+<% else %>
+  <div class="col-centered">
+    <h5> <%= link_to "Log in", new_user_session_path %> to post a review</h5>
   </div>
-  <div class="form-group">
-    <%= f.label "On a scale from 1-5 curds, would you curd again?" %>
-    <%= f.select :rating, (1..5), class: "form-control" %>
-  </div>
-    <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
-    <%= f.submit "Seize the Cheese", class: "btn btn-primary" %>
-    <% end %>
-</div>
+<% end %>
