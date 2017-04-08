@@ -12,22 +12,39 @@
  *
 
  */
-@import "bootstrap";
+
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+//= require bootstrap
+body{
+  background:url('http://goldenagecheese.com/blog/wp-content/uploads/2015/04/che.jpg') no-repeat;
+  min-height:100%;
+  background-size:cover;
+  background-attachment: fixed;
+}
 
 .col-centered{
     float: none;
-    margin: 20px auto;
+    margin: 20px;
     background-color: lightgrey;
     padding: 1em;
 }
 
-body{
-	/* This image will be displayed fullscreen */
-	background:url('http://goldenagecheese.com/blog/wp-content/uploads/2015/04/che.jpg') no-repeat;
 
-	/* Ensure the html element always takes up the full height of the browser window */
-	min-height:100%;
+.review {
+  background-color: white;
+  border-radius: 1em;
+  padding: 1em;
+  border: .25em;
+  border-style: solid;
+  border-color: yellow;
+}
 
-	/* The Magic */
-	background-size:cover;
+.notice {
+  font-size: 2em;
+  font-style: bold;
+}
+
+.alert {
+  font-size: 2em;
+  font-style: bold;
 }

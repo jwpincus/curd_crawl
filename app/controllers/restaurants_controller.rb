@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :verify_is_admin, only: [:new, :create, :destroy, :edit, :update]
   def new
     @restaurant = Restaurant.new
     @neighborhoods = Neighborhood.all
@@ -16,6 +17,23 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+  end
+
+  def destroy
+    Restaurant.find(params[:id]).reviews.destroy_all
+    Restaurant.find(params[:id]).destroy
+    redirect_to admin_dash_path
+  end
+
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+    @neighborhoods = Neighborhood.all
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.update(restaurant_params)
+    redirect_to restaurant_path(@restaurant)
   end
 
   private

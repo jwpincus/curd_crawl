@@ -1,0 +1,22 @@
+<div class="col-centered">
+  <h2>All Restaurants</h2>
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %> <%= link_to "Edit", edit_restaurant_path(restaurant) %> <%= link_to "Delete", restaurant_path(restaurant), method: :delete %>
+    </li>
+    <% end %>
+
+  </ul>
+  <h2>All Users</h2>
+  <ul>
+    <% @users.each do |user| %>
+    <li>
+      <%= user.email %> 
+    </li>
+    <% end %>
+
+  </ul>
+
+
+</div>

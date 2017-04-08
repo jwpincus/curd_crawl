@@ -9,7 +9,7 @@ describe "restaurant reviews," do
                                    neighborhood_id: n.id)
     visit restaurant_path(restaurant)
     fill_in "Name", with: "Jack"
-    fill_in "Review", with: "Super squeeky"
-    fill_in "Rating", with: 5
+    fill_in "review[review]", with: "Super squeeky"
+    select 5, from: "review[rating]"
   end
 end

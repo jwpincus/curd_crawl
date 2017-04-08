@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "User adds a restaurant" do
   scenario "user creates a new restaurant and sees it on show" do
+    Neighborhood.create(name:"Denver")
     visit new_restaurant_path
     fill_in "Name", with: "Lucky Pie"
     fill_in "Address", with: "1200 16th st, Denver CO"
