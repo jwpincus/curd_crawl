@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   def new
     @restaurant = Restaurant.new
     @neighborhoods = Neighborhood.all

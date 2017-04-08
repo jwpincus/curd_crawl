@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   def create
     @review = Restaurant.find(review_params[:restaurant_id]).reviews.create(review_params)
     redirect_to restaurant_path(@review.restaurant)
