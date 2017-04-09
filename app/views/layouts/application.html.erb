@@ -25,6 +25,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><%= link_to "All Restaurants", restaurants_path %></li>
+          <li><%= link_to "Crawl Schedule", crawls_path %></li>
           <% if current_user.try(:admin?) %>
             <li>
               <%= link_to "Admin Dashboard", admin_dash_path %>
