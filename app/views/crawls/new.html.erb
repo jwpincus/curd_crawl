@@ -1,0 +1,17 @@
+<div class="col-centered col-md-11">
+  <h1>Add a new Curd Crawl Event</h1>
+  <%= form_for @crawl do |f| %>
+  <div class="form-group">
+    <%= f.label "Pick a time to go cheesin'" %>
+    <%= f.datetime_select :time, default: 3.days.from_now, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Pick a place!" %>
+    <%= f.select :restaurant_id, options_for_select(@restaurants.collect{ |u| [u.name, u.id] }), class: "form-control" %>
+  </div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="form-group">
+    <%= f.submit "Goin' Cheesin'", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>

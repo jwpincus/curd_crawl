@@ -1,0 +1,9 @@
+<div class="col-centered col-md-11">
+<%= link_to "Add a new crawl!", new_crawl_path if user_signed_in?  %>
+<% @crawls.each do |crawl| %>
+  <% if (crawl.time > DateTime.now) %>
+    <h4>  <%= @eating_phrases.shuffle.first %>   at <%= link_to crawl.restaurant.name, restaurant_path(crawl.restaurant) %> on   <%= crawl.time.strftime('%b %e') %></h4>
+    <%= link_to "Delete this crawl", crawl_path(crawl), method: :delete if current_user.try(:admin?) %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,5 +1,6 @@
 <div class="col-centered">
   <h2>All Restaurants</h2>
+  <p> <%= link_to "Add a new restaurant", new_restaurant_path %></p>
   <ul>
     <% @restaurants.each do |restaurant| %>
     <li>
@@ -12,7 +13,7 @@
   <ul>
     <% @users.each do |user| %>
     <li>
-      <%= user.email %> 
+      <%= user.email %>
     </li>
     <% end %>
 

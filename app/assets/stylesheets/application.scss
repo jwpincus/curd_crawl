@@ -25,16 +25,17 @@ body{
 .col-centered{
     float: none;
     margin: 20px;
-    background-color: lightgrey;
+    background: rgba(192,192,192,.7);
     padding: 1em;
+
 }
 
 
 .review {
   background-color: white;
-  border-radius: 1em;
+  border-radius: .5em;
   padding: 1em;
-  border: .25em;
+  border: .1em;
   border-style: solid;
   border-color: yellow;
 }
